@@ -13,6 +13,6 @@ class StockEntries(models.Model):
     Volume = models.FloatField(default=0)
     Prediction = models.TextField(default='No Prediction')
     EntryTime = models.DateTimeField(default=datetime.datetime.now())
-
+    
     def __str__(self):
         return self.Prediction
