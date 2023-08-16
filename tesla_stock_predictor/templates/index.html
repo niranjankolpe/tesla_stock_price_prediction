@@ -9,6 +9,16 @@
 {% block body %}
 <form action="result" method="post">
     {% csrf_token %}
+
+    <center>
+        <big style="display: inline;">Model: </big>
+        <select name="Model" class="form-select" style="width: 30%; display: inline;">
+            <option value="linear_regression_model">Linear Regression (default)</option>
+            <option value="gradient_boosting_regression_model">Gradient Boosting Regression</option>
+            <option value="random_forest_regression_model">Random Forest Regression</option>
+        </select>
+    </center><br>
+
     <div class="mb-3 row">
         <div class="mb-3 col-6">
             <label for="Date" class="form-label">Date (Year)</label>

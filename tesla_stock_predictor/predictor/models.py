@@ -5,6 +5,7 @@ import datetime
 class StockEntries(models.Model):
     id = models.AutoField(primary_key=True)
 
+    Model = models.TextField(default='Error')
     Date = models.IntegerField(default=0)
     Open = models.FloatField(default=0)
     High = models.FloatField(default=0)
