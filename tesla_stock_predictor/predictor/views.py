@@ -17,10 +17,13 @@ from sklearn.ensemble import RandomForestRegressor
 
 # Create your views here.
 def index(request):
-    return render(request, 'index.html')
+    return render(request, 'home.html')
 
 def home(request):
-    return render(request, 'index.html')
+    return render(request, 'home.html')
+
+def predictor(request):
+    return render(request, 'predictor.html')
 
 def result(request):
     if request.method == 'POST':
@@ -37,8 +40,11 @@ def result(request):
         
         inputs = [Date, Open, High, Low, Close, Volume]
         predicted_value = model.predict([inputs])
-        predicted_value = str(predicted_value[0])
-        print(predicted_value)
+        if model_name == "linear_regression_model":
+            predicted_value = str(predicted_value[0][0])
+        else:
+            predicted_value = str(predicted_value[0])
+
         models = {'linear_regression_model': 'Linear Regression',
                   'gradient_boosting_regression_model': 'Gradient Boosting Regression',
                   'random_forest_regression_model': 'Random Forest Regression'}
@@ -59,11 +65,22 @@ def report(request):
     return render(request, 'report.html', data)
 
 def statistics(request):
+    df = pd.read_csv('static/Tesla.csv')
+    df.to_html("static/dataset_html.html", table_id="dataset_table")
     return render(request, 'statistics.html')
+
+def refreshModels(request):
+    x, y = preprocess()
+    boolean = createModels(x, y)
+    if (boolean == True):
+        print("Models Refreshed!")
+    else:
+        print("Models Not Refreshed!")
+    return render(request, 'home.html')
 
 def preprocess():
     df = pd.read_csv('static/Tesla.csv')
-    df.to_html("static/dataset_html.html")
+    df.to_html("static/dataset_html.html", classes="table")
 
     df_description = df.describe()
     df_description.to_html("static/dataset_description.html")
