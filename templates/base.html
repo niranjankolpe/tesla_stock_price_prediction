@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock title %} | Tesla Stock Price Predictor</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <style>
+      .navbar {
+          background-color: white;
+      }
+      .navbar-brand {
+          color: black;
+          font-weight: bold;
+      }
+      .nav-link {
+          color: black;
+      }
+      .nav-link:hover {
+          color: #007bff;
+      }
+      {% block style %}{% endblock style %}
+    </style>
+    <link rel="shortcut icon" href="static/favicon.ico" type="image/x-icon">
+    <script>{% block scripts %}{% endblock scripts %}</script>
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="home" style="padding-left: 10px;">Tesla Stocks</a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active"><a class="nav-link" href="home"><span class="sr-only">Home</span></a></li>
+                <li class="nav-item"><a class="nav-link" href="predictor">Predictor</a></li>
+                <li class="nav-item"><a class="nav-link" href="report">Data and Reports</a></li>
+                <li class="nav-item"><a class="nav-link" href="statistics">Statistics</a></li>
+                <li class="nav-item"><a class="nav-link" href="admin">Admin</a></li>
+              </ul>
+            </div>
+        </nav><br>
+        <h1 style="text-align: center;">Tesla Stock Price Predictor</h1><br><br>
+        {% block body %}{% endblock body %}<br>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+</body>
+</html>

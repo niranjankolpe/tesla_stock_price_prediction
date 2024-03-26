@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Result{% endblock title %}
+
+{% block style %}
+<style>
+    #done{
+        background-color: blueviolet;
+        color: white;
+        border: 0px;
+        width: 25%;
+    }
+</style>
+{% endblock style %}
+
+{% block scripts %}{% endblock scripts %}
+
+{% block body %}
+<center>
+    <h3>Model: {{model_name}}</h3><br>
+    <h3>Your Data: {{user_inputs}}</h3><br>
+    <h3>Predicted Value: {{prediction}}</h3><br>
+    <a id='done' href="home" target="_self" class="btn btn-primary" role="button">Done</a>
+</center>
+{% endblock body %}

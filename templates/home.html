@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock title %}
+
+{% block style %}
+    body {
+        background-color: white;
+    }
+    .jumbotron {
+        background-color: #343a40;
+        color: white;
+    }
+    .btn-primary {
+        background-color: #6610f2;
+        border-color: #6610f2;
+    }
+    .btn-primary:hover {
+        background-color: #5609a5;
+        border-color: #5609a5;
+    }
+    .lead {
+        color: white;
+    }
+{% endblock style %}
+
+{% block scripts %}{% endblock scripts %}
+
+{% block body %}
+<div class="jumbotron text-center">
+    <h1 class="display-4">Welcome to the <b><i>Tesla Stock Price Predictor</i></b></h1>
+    <p class="lead" style="padding-bottom: 7px;">Predicting stock prices is an exciting yet challenging task...</p>
+</div>
+
+<div class="container mt-5">
+    <h2 class="mt-4">Project Overview:</h2>
+    <p>Our goal is to develop a predictive model that utilizes machine learning algorithms to forecast Tesla's stock prices.</p>
+    
+    <h2 class="mt-4">Key Features:</h2>
+    <ul>
+        <li><strong>Real-time Data:</strong> We fetch and analyze up-to-date stock data from reliable sources.</li>
+        <li><strong>Machine Learning Models:</strong> Our project employs state-of-the-art machine learning techniques for accurate predictions.</li>
+        <li><strong>User-Friendly Interface:</strong> Easily interact with the project and obtain predictions through a simple and intuitive interface.</li>
+    </ul>
+    
+    <h2 class="mt-4">How It Works</h2>
+    <big>Input the following data to the Predictor:</big>
+    <ol>
+        <li><strong>Date : </strong>The date of prediction</li>
+        <li><strong>Open : </strong>The opening price of the day</li>
+        <li><strong>High : </strong>The highest price of day</li>
+        <li><strong>Low : </strong>The lowest price of the day</li>
+        <li><strong>Close : </strong>The closed price of the day</li>            
+        <li><strong>Volume : </strong>The amount of stocks traded price of the day</li>
+    </ol>
+
+    <big>Output generated is nothing but the prediction value:</big>
+    <p><strong>Adj Closed : </strong>Adjusted Close is the stock's closing price that has been amended to include any distributions/corporate actions that occurs before next days open.</p>
+    <div class="text-center mt-4">
+        <a href="predictor" class="btn btn-primary" style="background-color: blueviolet; color: white">Get Started</a>
+    </div>
+</div><br>
+{% endblock body %}

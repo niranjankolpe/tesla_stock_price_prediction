@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block title %}Data and Reports{% endblock title %}
+
+{% block style %}{% endblock style %}
+
+{% block scripts %}{% endblock scripts %}
+
+{% block body %}
+<center>
+  <h2>Database Records</h2><br>
+  <table class="table">
+      <thead>
+        <tr>
+          <th>Sr. No.</th>
+          <th>Model</th>
+          <th>Date</th>
+          <th>Open</th>
+          <th>High</th>
+          <th>Low</th>
+          <th>Close</th>
+          <th>Volume</th>
+          <th>Prediction</th>
+          <th>EntryTime</th>
+        </tr>
+      </thead>
+      <tbody>
+          {% for row in data %}
+        <tr>
+          <td>{{row.id}}</td>
+          <td>{{row.Model}}</td>
+          <td>{{row.Date}}</td>
+          <td>{{row.Open}}</td>
+          <td>{{row.High}}</td>
+          <td>{{row.Low}}</td>
+          <td>{{row.Close}}</td>
+          <td>{{row.Volume}}</td>
+          <td>{{row.Prediction}}</td>
+          <td>{{row.EntryTime}}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+  </table>
+</center>
+{% endblock body %}
